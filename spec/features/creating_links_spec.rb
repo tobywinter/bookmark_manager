@@ -7,7 +7,7 @@ feature 'I want to save links to the list' do
     visit('/links/new')
     fill_in 'url', with: "http://www.google.co.uk/"
     fill_in 'title', with: 'This is Google'
-    click_button 'Save link'
+    click_button 'Save Link'
 
     expect(current_path).to eq '/links'
 
