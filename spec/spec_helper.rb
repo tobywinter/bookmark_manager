@@ -19,11 +19,11 @@ require 'capybara/rspec'
 require 'rspec'
 require './app/models/link'
 
-require File.join(File.dirname(__FILE__), '..', 'app.rb')
+require File.join(File.dirname(__FILE__), '../app', 'app.rb')
 
 ENV['RACK_ENV'] = 'test'
 
-Capybara.app = BookmarkManager
+#Capybara.app = BookmarkManager
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
