@@ -1,14 +1,13 @@
 source "https://rubygems.org"
+ruby '2.4.0'
 
 
   gem 'data_mapper'
   gem 'dm-postgres-adapter'
-  gem 'shotgun'
+  gem 'sinatra'
+  gem 'database_cleaner'
 
 group :test do
-  gem 'database_cleaner'
-  gem 'dm-rspec'
   gem 'capybara'
   gem 'rspec'
-  gem 'sinatra'
 end
