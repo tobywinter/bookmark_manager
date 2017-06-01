@@ -7,13 +7,10 @@ feature 'Adding tags to links' do
     visit '/links/new'
     fill_in 'url', with: "http://www.google.co.uk/"
     fill_in 'title', with: 'Google'
-    fill_in 'tag', with: 'Search Engine'
+    fill_in 'tags', with: 'Search Engine'
+
     click_button 'Save Link'
-
-    expect(current_path).to eq '/links'
-
-    within 'ul#links' do
-      expect(page).to have_content('Search Engine')
-    end
+    link = Link.first
+    expect(link.tags.map(&:name)).to include('Search Engine')
   end
 end
