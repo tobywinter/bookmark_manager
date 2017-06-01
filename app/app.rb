@@ -1,4 +1,4 @@
-ENV['RACK_ENV'] ||= 'development' 
+ENV['RACK_ENV'] ||= 'development'
 require 'sinatra/base'
 require_relative 'models/link'
 
@@ -14,7 +14,7 @@ get '/links/new' do
 end
 
 post '/links' do
-  Link.create(url: params[:url], title: params[:title])
+  Link.create(url: params[:url], title: params[:title], tag: params[:tag])
   redirect '/links'
 end
 
