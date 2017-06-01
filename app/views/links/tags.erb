@@ -1,0 +1,10 @@
+<h1> LINKS </h1>
+
+<ul id='links'>
+  <% @filtered_links.each do |link|  %>
+    <li>
+      <b>Title:</b> <%= link.title %>
+      <b>URL:</b>   <%= link.url %>
+    </li>
+  <% end %>
+</ul>
