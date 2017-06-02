@@ -7,7 +7,7 @@
     <li>
       <b>Title:</b> <%= link.title %>
       <b>URL:</b>   <%= link.url %>
-      <b>Tags:</b> <%= link.tags.map(&:name) %>
+      <b>Tags:</b> <%= link.tags.map(&:name).join(', ') %>
     </li>
   <% end %>
 </ul>
