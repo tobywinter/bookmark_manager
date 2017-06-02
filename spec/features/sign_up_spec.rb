@@ -4,10 +4,18 @@
 
 
 feature 'users can create an account' do
-  scenario 'user signs up for account with email and password' do
-    expect{ sign_up }.to change( User, :count ).by 1
-    expect(current_path).to eq '/links'
-    expect(page).to have_content 'Welcome, toby@iamlame.com'
-    expect(User.first.email).to eq('toby@iamlame.com')
+
+  scenario 'user signs up for account with email and password and requires a matching confirmation password' do
+    expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
+  end
+
+  def sign_up(email: 'toby@iamlame.com',
+              password: 'z0mbocom',
+              password_confirmation: 'z00mbbocom')
+    visit '/users/signup'
+    fill_in :email, with: email
+    fill_in :password, with: password
+    fill_in :password_confirmation, with: password_confirmation
+    click_button 'Submit'
   end
 end
