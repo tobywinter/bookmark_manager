@@ -5,14 +5,9 @@
 
 feature 'users can create an account' do
   scenario 'user signs up for account with email and password' do
-    visit '/users/signup'
-    fill_in 'email', with: "toby@iamlame.com"
-    fill_in 'password', with: "z0mbocom"
-    click_button 'Submit'
-
+    expect{ sign_up }.to change( User, :count ).by 1
     expect(current_path).to eq '/links'
-    expect(page).to have_content 'Welcome toby@iamlame.com'
-    expect{User.count}.to change_by(1)
+    expect(page).to have_content 'Welcome, toby@iamlame.com'
     expect(User.first.email).to eq('toby@iamlame.com')
   end
 end
